@@ -58,6 +58,44 @@ Ext.application({
                             this.getDetailCard().setHtml(post.get('content'));
                         }
                     }
+                },
+                //Pestaña contactos
+                {
+                    title: 'Contactos',
+                    iconCls: 'user',
+                    xtype: 'formpanel',
+                    url: 'contact.php',
+                    layout: 'vbox',
+
+                    items: [
+                        {
+                            xtype: 'fieldset',
+                            title: 'Contactenos',
+                            instructions: '(el email es opcional)',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    label: 'Nombre'
+                                },
+                                {
+                                    xtype: 'emailfield',
+                                    label: 'Email'
+                                },
+                                {
+                                    xtype: 'textareafield',
+                                    label: 'Mensaje'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'button',
+                            text: 'Enviar',
+                            ui: 'confirm',
+                            handler: function() {
+                                this.up('formpanel').submit();
+                            }
+                        }
+                    ]
                 }
 			]		
 		});
